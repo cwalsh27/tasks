@@ -17,9 +17,11 @@ function App(): JSX.Element {
                 <Row>
                     <Col>
                         <p>This is text</p>
+                        <div className=".redRect"></div>
                     </Col>
                     <Col>
                         <img src="lion.jpeg" alt="LionImage" />
+                        <div className=".redRect"></div>
                     </Col>
                 </Row>
             </Container>
