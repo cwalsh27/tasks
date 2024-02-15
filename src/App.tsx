@@ -17,10 +17,16 @@ function App(): JSX.Element {
                 <Row>
                     <Col>
                         <p>This is text</p>
-                        <div className=".redRect"></div>
                     </Col>
                     <Col>
                         <img src="lion.jpeg" alt="LionImage" />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <div className=".redRect"></div>
+                    </Col>
+                    <Col>
                         <div className=".redRect"></div>
                     </Col>
                 </Row>
