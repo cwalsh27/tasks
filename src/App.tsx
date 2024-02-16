@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import lion from "./lion.jpeg";
 
 function App(): JSX.Element {
     return (
@@ -19,15 +20,15 @@ function App(): JSX.Element {
                         <p>This is text</p>
                     </Col>
                     <Col>
-                        <img src="lion.jpeg" alt="LionImage" />
+                        <img src={lion} alt="LionImage" />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <div className=".redRect"></div>
+                        <div className="redRect"></div>
                     </Col>
                     <Col>
-                        <div className=".redRect"></div>
+                        <div className="redRect"></div>
                     </Col>
                 </Row>
             </Container>
