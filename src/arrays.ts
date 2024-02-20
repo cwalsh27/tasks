@@ -13,7 +13,7 @@ export function bookEndList(numbers: number[]): number[] {
         const doubled = [...numbers, ...numbers];
         return doubled;
     }
-    const newArray = numbers;
+    const newArray = [...numbers];
     newArray.splice(1, numLen - 2);
     return newArray;
 }
