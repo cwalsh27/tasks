@@ -69,11 +69,13 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
     const shoutCheck = (val: string): boolean =>
         val.charAt(val.length - 1) === "!";
     const questionCheck = (val: string): boolean =>
-        val.charAt(val.length - 1) === "?";
+        val.charAt(val.length - 1) !== "?";
     const shouts = messages.map((val: string): string =>
         shoutCheck(val) ? (val = val.toUpperCase()) : val
     );
+    console.log(shouts);
     const noQs = shouts.filter(questionCheck);
+    console.log(noQs);
     return noQs;
 };
 /**
