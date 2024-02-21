@@ -116,11 +116,16 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
+    if (addends.length < 1) {
+        return "0=0";
+    }
     const sum = addends.reduce(
         (currentTotal: number, num: number) => currentTotal + num,
         0
     );
     const sumString = sum.toString().concat("=");
+    const additions = addends.join("+");
+    return sumString.concat(additions);
 }
 
 /**
