@@ -136,7 +136,8 @@ export function injectPositive(values: number[]): number[] {
     const findFirstNegative = (values: number[]) =>
         values.findIndex((num: number) => num < 0);
     const negIndex = findFirstNegative(values);
-    if (negIndex > 0) {
+    console.log(negIndex);
+    if (negIndex >= 0) {
         const firstClip = [...values];
         firstClip.splice(negIndex, values.length - negIndex);
         console.log(firstClip);
