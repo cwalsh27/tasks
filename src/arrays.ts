@@ -95,6 +95,17 @@ export function allRGB(colors: string[]): boolean {
     if (colors.length === 0) {
         return true;
     }
+    const redCheck = (val: string): boolean => val !== "red";
+    const blueCheck = (val: string): boolean => val !== "green";
+    const greenCheck = (val: string): boolean => val !== "blue";
+    const noReds = colors.filter(redCheck);
+    const noBlues = noReds.filter(blueCheck);
+    const noGreens = noBlues.filter(greenCheck);
+    if (noGreens.length >= 1) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 /**
