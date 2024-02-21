@@ -73,9 +73,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
     const shouts = messages.map((val: string): string =>
         shoutCheck(val) ? (val = val.toUpperCase()) : val
     );
-    console.log(shouts);
     const noQs = shouts.filter(questionCheck);
-    console.log(noQs);
     return noQs;
 };
 /**
