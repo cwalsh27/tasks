@@ -133,5 +133,14 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const findFirstNegative = (values: number[]) =>
+        values.findIndex((num: number) => num < 0);
+    const negIndex = findFirstNegative(values);
+    const firstClip = values.splice(negIndex, values.length - negIndex);
+    const sum = firstClip.reduce(
+        (currentTotal: number, num: number) => currentTotal + num,
+        0
+    );
+    const final = values.splice(negIndex + 1, 0, sum);
+    return final;
 }
