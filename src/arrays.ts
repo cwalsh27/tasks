@@ -66,9 +66,16 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const shoutCheck = (val: string): boolean =>
+        val.charAt(val.length - 1) === "!";
+    const questionCheck = (val: string): boolean =>
+        val.charAt(val.length - 1) === "?";
+    const shouts = messages.map((val: string): string =>
+        shoutCheck(val) ? (val = val.toUpperCase()) : val
+    );
+    const noQs = shouts.filter(questionCheck);
+    return noQs;
 };
-
 /**
  * Consumes an array of words and returns the number of words that are LESS THAN
  * 4 letters long.
