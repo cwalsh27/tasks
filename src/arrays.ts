@@ -137,14 +137,18 @@ export function injectPositive(values: number[]): number[] {
         values.findIndex((num: number) => num < 0);
     const negIndex = findFirstNegative(values);
     if (negIndex > 0) {
-        const firstClip = values.splice(negIndex, values.length - negIndex);
+        const firstClip = [...values];
+        firstClip.splice(negIndex, values.length - negIndex);
+        console.log(firstClip);
         const sum = firstClip.reduce(
             (currentTotal: number, num: number) => currentTotal + num,
             0
         );
-        const final = values.splice(negIndex + 1, 0, sum);
+        console.log(sum);
+        console.log(values);
+        const final = [...values];
+        final.splice(negIndex + 1, 0, sum);
         console.log(final);
-        console.log(firstClip);
         return final;
     } else {
         const sum2 = values.reduce(
@@ -152,7 +156,7 @@ export function injectPositive(values: number[]): number[] {
             0
         );
         const final2 = [...values, sum2];
-        console.log(final2);
+        //console.log(final2);
         return final2;
     }
 }
