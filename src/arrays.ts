@@ -136,7 +136,7 @@ export function injectPositive(values: number[]): number[] {
     const findFirstNegative = (values: number[]) =>
         values.findIndex((num: number) => num < 0);
     const negIndex = findFirstNegative(values);
-    if (negIndex < 0) {
+    if (negIndex > 0) {
         const firstClip = values.splice(negIndex, values.length - negIndex);
         const sum = firstClip.reduce(
             (currentTotal: number, num: number) => currentTotal + num,
@@ -146,5 +146,13 @@ export function injectPositive(values: number[]): number[] {
         console.log(final);
         console.log(firstClip);
         return final;
+    } else {
+        const sum2 = values.reduce(
+            (currentTotal: number, num: number) => currentTotal + num,
+            0
+        );
+        const final2 = [...values, sum2];
+        console.log(final2);
+        return final2;
     }
 }
