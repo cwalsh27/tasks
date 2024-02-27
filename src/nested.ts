@@ -112,7 +112,27 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    const firstLine = "id,name,options,points,published\n";
+    const questionStrings = questions.map(
+        (question: Question): string =>
+            question.id +
+            "," +
+            question.name +
+            "," +
+            question.options.length +
+            "," +
+            question.points +
+            "," +
+            question.published +
+            "\n"
+    );
+    const masterCSV = questionStrings.reduce(
+        (csv: string, question: string) => csv.concat(question),
+        ""
+    );
+    const merged = firstLine.concat(masterCSV);
+    const mergedChopped = merged.substring(0, merged.length - 1);
+    return mergedChopped;
 }
 
 /**
