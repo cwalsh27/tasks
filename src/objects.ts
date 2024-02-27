@@ -124,7 +124,12 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    return question;
+    const newPublishCopy = {
+        ...question,
+        options: [...question.options],
+        published: !question.published
+    };
+    return newPublishCopy;
 }
 
 /**
