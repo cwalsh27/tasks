@@ -19,15 +19,12 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
     const bodyFilter = questions.filter(
-        (question: Question): boolean => question.body !== ""
+        (question: Question): boolean =>
+            question.body !== "" ||
+            question.expected !== "" ||
+            question.options.length !== 0
     );
-    const expectedFilter = bodyFilter.filter(
-        (question: Question): boolean => question.expected !== ""
-    );
-    const optionsFilter = expectedFilter.filter(
-        (question: Question): boolean => question.options.length !== 0
-    );
-    return optionsFilter;
+    return bodyFilter;
 }
 
 /***
