@@ -33,7 +33,8 @@ export function isCorrect(question: Question, answer: string): boolean {
     const questionVal = question.expected;
     const questionTrimmed = questionVal.trim();
     const questionLowerTrim = questionTrimmed.toLowerCase();
-    return questionLowerTrim === answer;
+    const answerLowerTrim = answer.trim().toLowerCase();
+    return questionLowerTrim === answerLowerTrim;
 }
 
 /**
