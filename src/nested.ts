@@ -256,7 +256,6 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    /*
     if (targetOptionIndex === -1) {
         const optionSwitch = questions.map(
             (question: Question): Question =>
@@ -266,24 +265,8 @@ export function editOption(
         );
         return optionSwitch;
     } else {
-        function insertOption
-        const optionSwitch = questions.map(
-            (question: Question): Question =>
-                question.id === targetId
-                    ? {
-                        ...question,
-                        options: question.options.splice(
-                            targetOptionIndex,
-                            1,
-                            newOption
-                        )
-                    }
-                    : question
-        );
-        return optionSwitch;
+        return [];
     }
-    */
-    return [];
 }
 
 /***
