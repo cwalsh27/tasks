@@ -265,7 +265,20 @@ export function editOption(
         );
         return optionSwitch;
     } else {
-        return [];
+        const targetIndex = questions.findIndex(
+            (question: Question): boolean => question.id === targetId
+        );
+        //extract question and deep copy it to replace in original later
+        const questionDupe = {
+            ...questions[targetIndex],
+            options: [...questions[targetIndex].options]
+        };
+        questionDupe.options.splice(targetOptionIndex, 1, newOption);
+        const optionSwitch = questions.map(
+            (question: Question): Question =>
+                question.id === targetId ? (question = questionDupe) : question
+        );
+        return optionSwitch;
     }
 }
 
