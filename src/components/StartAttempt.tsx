@@ -7,11 +7,11 @@ export function StartAttempt(): JSX.Element {
 
     function startQuiz(): void {
         setAttemptNum(attemptNum - 1);
-        setInProgress(!inProgress);
+        setInProgress(true);
     }
 
     function stopQuiz(): void {
-        setInProgress(!inProgress);
+        setInProgress(false);
     }
 
     function addredo(): void {
@@ -19,7 +19,11 @@ export function StartAttempt(): JSX.Element {
     }
 
     return (
-        <span>
+        <div>
+            <div>
+                <span>Attempts: {attemptNum} </span>
+                <span>In Progress: {inProgress}</span>
+            </div>
             <Button
                 onClick={startQuiz}
                 disabled={inProgress || attemptNum === 0}
@@ -32,6 +36,6 @@ export function StartAttempt(): JSX.Element {
             <Button onClick={addredo} disabled={inProgress}>
                 Mulligan
             </Button>
-        </span>
+        </div>
     );
 }
