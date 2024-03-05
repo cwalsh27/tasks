@@ -15,26 +15,133 @@ PASS src/objects.test.ts
 PASS src/arrays.test.ts
 PASS src/nested.test.ts
 PASS src/functions.test.ts
-PASS src/App.test.tsx
-PASS src/text.test.tsx
-PASS src/HtmlCss.test.tsx
-----------------|---------|----------|---------|---------|-------------------
-File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------|---------|----------|---------|---------|-------------------
-All files       |     100 |      100 |     100 |     100 |                   
- src            |     100 |      100 |     100 |     100 |                   
-  App.tsx       |     100 |      100 |     100 |     100 |                   
-  arrays.ts     |     100 |      100 |     100 |     100 |                   
-  functions.ts  |     100 |      100 |     100 |     100 |                   
-  nested.ts     |     100 |      100 |     100 |     100 |                   
-  objects.ts    |     100 |      100 |     100 |     100 |                   
- src/interfaces |       0 |        0 |       0 |       0 |                   
-  answer.ts     |       0 |        0 |       0 |       0 |                   
-  question.ts   |       0 |        0 |       0 |       0 |                   
-----------------|---------|----------|---------|---------|-------------------
+PASS src/components/StartAttempt.test.tsx
+FAIL src/components/ChangeType.test.tsx
+  ● ChangeType Component tests › The initial type is Short Answer
 
-Test Suites: 7 passed, 7 total
-Tests:       49 passed, 49 total
+    TestingLibraryElementError: Unable to find an element with the text: /Short Answer/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mChange Type[0m
+          [36m</button>[39m
+        [36m</span>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+       9 |     test("The initial type is Short Answer", () => {
+      10 |         // We use `getByText` because the text MUST be there
+    > 11 |         const typeText = screen.getByText(/Short Answer/i);
+         |                                 ^
+      12 |         expect(typeText).toBeInTheDocument();
+      13 |     });
+      14 |     test("The initial type is not Multiple Choice", () => {
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/components/ChangeType.test.tsx:11:33)
+
+  ● ChangeType Component tests › Clicking the button changes the type.
+
+    TestingLibraryElementError: Unable to find an element with the text: /Multiple Choice/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mChange Type[0m
+          [36m</button>[39m
+        [36m</span>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      31 |         changeTypeButton.click();
+      32 |         // Should be Multiple Choice
+    > 33 |         const typeTextMC = screen.getByText(/Multiple Choice/i);
+         |                                   ^
+      34 |         expect(typeTextMC).toBeInTheDocument();
+      35 |         // Should NOT be Short Answer
+      36 |         const typeTextSA = screen.queryByText(/Short Answer/i);
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/components/ChangeType.test.tsx:33:35)
+
+  ● ChangeType Component tests › Clicking the button twice keeps the type the same.
+
+    TestingLibraryElementError: Unable to find an element with the text: /Short Answer/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mChange Type[0m
+          [36m</button>[39m
+        [36m</span>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      45 |         changeTypeButton.click();
+      46 |         // Should be Short Answer
+    > 47 |         const typeTextSA = screen.getByText(/Short Answer/i);
+         |                                   ^
+      48 |         expect(typeTextSA).toBeInTheDocument();
+      49 |         // Should NOT be Multiple Choice
+      50 |         const typeTextMC = screen.queryByText(/Multiple Choice/i);
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/components/ChangeType.test.tsx:47:35)
+
+PASS src/components/TwoDice.test.tsx
+PASS src/components/CycleHoliday.test.tsx
+PASS src/components/Counter.test.tsx
+PASS src/components/RevealAnswer.test.tsx
+PASS src/App.test.tsx
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |     100 |      100 |     100 |     100 |                   
+ src               |     100 |      100 |     100 |     100 |                   
+  App.tsx          |     100 |      100 |     100 |     100 |                   
+  arrays.ts        |     100 |      100 |     100 |     100 |                   
+  functions.ts     |     100 |      100 |     100 |     100 |                   
+  nested.ts        |     100 |      100 |     100 |     100 |                   
+  objects.ts       |     100 |      100 |     100 |     100 |                   
+ src/components    |     100 |      100 |     100 |     100 |                   
+  ChangeType.tsx   |     100 |      100 |     100 |     100 |                   
+  Counter.tsx      |     100 |      100 |     100 |     100 |                   
+  CycleHoliday.tsx |     100 |      100 |     100 |     100 |                   
+  RevealAnswer.tsx |     100 |      100 |     100 |     100 |                   
+  StartAttempt.tsx |     100 |      100 |     100 |     100 |                   
+  TwoDice.tsx      |     100 |      100 |     100 |     100 |                   
+ src/interfaces    |       0 |        0 |       0 |       0 |                   
+  answer.ts        |       0 |        0 |       0 |       0 |                   
+  question.ts      |       0 |        0 |       0 |       0 |                   
+-------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 1 failed, 10 passed, 11 total
+Tests:       3 failed, 90 passed, 93 total
 Snapshots:   0 total
-Time:        3.927 s
+Time:        5.375 s
 Ran all test suites.
