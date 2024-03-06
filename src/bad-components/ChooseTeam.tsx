@@ -15,8 +15,9 @@ export function ChooseTeam(): JSX.Element {
     const [team, setTeam] = useState<string[]>([]);
 
     function chooseMember(optionPicked: string) {
+        const newTeam = [...team, optionPicked];
         if (!team.includes(optionPicked)) {
-            setTeam([...team, optionPicked]);
+            setTeam(newTeam);
         }
     }
 
