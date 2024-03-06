@@ -19,5 +19,4 @@ export function ChangeType(): JSX.Element {
             <Button onClick={typeSwitch}>Change Type</Button>
         </span>
     );
-
 }
