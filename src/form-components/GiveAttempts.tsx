@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 export function GiveAttempts(): JSX.Element {
+    const [attemptsLeft, setAttemptsLeft] = useState<number>(3);
+    const [attemptsRequested, setAttemptsRequested] = useState<number>(0);
     return (
         <div>
             <h3>Give Attempts</h3>
