@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 export function ChangeColor(): JSX.Element {
-    const [color, setColor] = useState<string>("");
+    const [color, setColor] = useState<string>("white");
 
     function updateColor(event: React.ChangeEvent<HTMLInputElement>) {
         setColor(event.target.value);
@@ -94,7 +94,12 @@ export function ChangeColor(): JSX.Element {
                 />
                 <div>
                     <span>You have chosen </span>
-                    <span data-testId="colored-box">{color}</span>
+                    <span
+                        style={{ backgroundColor: color }}
+                        data-testId="colored-box"
+                    >
+                        {color}
+                    </span>
                 </div>
             </div>
         </div>
